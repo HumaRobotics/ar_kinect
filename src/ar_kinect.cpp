@@ -199,6 +199,7 @@ namespace ar_pose
     /* check for known patterns */
     for (i = 0; i < objectnum; i++)
     {
+
       k = -1;
       for (j = 0; j < marker_num; j++)
       {
@@ -246,12 +247,12 @@ namespace ar_pose
       tf::Matrix3x3  m = transform.getBasis();
       tf::Vector3    p = transform.getOrigin();
       bool invalid = false;
-      for(int i=0; i < 3; i++)
+      for(int i2=0; i2 < 3; i2++)
         for(int j=0; j < 3; j++)
-          invalid = (invalid || isnan(m[i][j]) || fabs(m[i][j]) > 1.0);
+          invalid = (invalid || isnan(m[i2][j]) || fabs(m[i2][j]) > 1.0);
 
-      for(int i=0; i < 3; i++)
-          invalid = (invalid || isnan(p[i]));
+      for(int i2=0; i2 < 3; i2++)
+          invalid = (invalid || isnan(p[i2]));
        
 
       if(invalid)
